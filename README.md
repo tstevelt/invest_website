@@ -7,7 +7,7 @@ invest_reports     | Reports called by invest.cgi
 invest_programs    | Programs called by invest.cgi or run at the command line
 invest_extra       | Additional programs for stock market research or db maintenance
 
-The live website is located at <https://stocks.silverhammersoftware.com>
+The live website is located at <a target='_blank' href='https://stocks.silverhammersoftware.com'>https://stocks.silverhammersoftware.com</a>
 
 ### Features
 Anonymous user
