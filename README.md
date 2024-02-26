@@ -1,10 +1,9 @@
 ## Investment Research and Portfolio Tracking Web Site
 
-This is the first of four repoistories for the Invest website.  The other three will be uploaded soon.
+This is the first of four repoistories for the Invest website.  The other two will be uploaded soon.  tstevelt/invest_programs was created Feb 26 at 16:15.
 Stay tuned for     | Description
 ------------------ | ----------------------------------------------------------------
 invest_reports     | Reports called by invest.cgi
-invest_programs    | Programs called by invest.cgi or run at the command line
 invest_extra       | Additional programs for stock market research or db maintenance
 
 The live website is located at `https://stocks.silverhammersoftware.com`
