@@ -1,0 +1,40 @@
+#!/bin/sh 
+
+echo "==== making LIB ===="
+cd invlib
+make $*
+cd ..
+
+DIRS=`find . -maxdepth 1 -type d | sort`
+
+rm -f MAKERESULTS
+
+for DIR in $DIRS
+do
+	if [ -f $DIR/NOMAKE ]
+	then
+		continue
+	fi
+
+	if [ $DIR = '.' ]
+	then
+		continue
+	fi
+
+	if [ -f $DIR/LIB ]
+	then
+		continue
+	fi
+
+	if [ -f $DIR/makefile ]
+	then
+		echo "==== making $DIR ===="
+		cd $DIR
+		make $*
+		cd ..
+	fi
+
+done 2>&1 | tee MAKERESULTS
+
+
+

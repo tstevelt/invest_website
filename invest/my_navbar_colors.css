@@ -1,0 +1,57 @@
+/*     Stock market website */
+/*     Copyright (C)  2019-2024 Tom Stevelt */
+/*     This program is free software: you can redistribute it and/or modify */
+/*     it under the terms of the GNU Affero General Public License as */
+/*     published by the Free Software Foundation, either version 3 of the */
+/*     License, or (at your option) any later version. */
+/*     This program is distributed in the hope that it will be useful, */
+/*     but WITHOUT ANY WARRANTY; without even the implied warranty of */
+/*     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
+/*     GNU Affero General Public License for more details. */
+/*     You should have received a copy of the GNU Affero General Public License */
+/*     along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+.navbar-inverse {
+background-color : #3399cc;
+border-color : #080808;
+}
+.navbar-inverse .navbar-brand {
+color : #ffffff;
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+color : #ffffff;
+background-color : transparent;
+}
+.navbar-inverse .navbar-text {
+color : #9d9d9d;
+}
+.navbar-inverse .navbar-nav > li > a {
+color : #000000;
+}
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+color : #ffffff;
+background-color : transparent;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+color : #ffffff;
+background-color : #006699;
+}
+.navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:focus, .navbar-inverse .navbar-nav > .disabled > a:hover {
+color : #555555;
+background-color : transparent;
+}
+.navbar-inverse .navbar-toggle {
+border-color : #333333;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+background-color : #333333;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+background-color : #ffffff;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+border-color : #101010;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+color : #ffffff;
+background-color : #080808;
+}

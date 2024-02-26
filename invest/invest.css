@@ -1,0 +1,246 @@
+/*     Stock market website */
+/*     Copyright (C)  2019-2024 Tom Stevelt */
+/*     This program is free software: you can redistribute it and/or modify */
+/*     it under the terms of the GNU Affero General Public License as */
+/*     published by the Free Software Foundation, either version 3 of the */
+/*     License, or (at your option) any later version. */
+/*     This program is distributed in the hope that it will be useful, */
+/*     but WITHOUT ANY WARRANTY; without even the implied warranty of */
+/*     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
+/*     GNU Affero General Public License for more details. */
+/*     You should have received a copy of the GNU Affero General Public License */
+/*     along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
+body
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #fcfcfc;
+}
+
+img.resize
+{
+	max-width: 600px;
+	width: 90%;
+	height: auto;
+}
+
+img.boats-sm
+{
+	margin-left:10px;
+ 	width: 35%;
+	height: auto;
+	float: right;
+}
+
+img.boats-lg
+{
+	margin-left:10px;
+	max-height: 250px;
+	float: right;
+}
+
+input.resize 
+{
+	width: 85%
+}
+
+textarea
+{
+	width: 85%;
+}
+
+h1, h2
+{
+	text-align: center;
+}
+
+h2.left
+{
+	text-align: left;
+}
+
+div.topspacer
+{
+	height: 55px;
+}
+
+/* border-color: top right bottom left */
+div.story
+{
+	margin: 10px auto;
+	padding: 10px;
+	width: 95%;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #999999;
+	border-radius: 6px;
+	background-color: #ebebeb;
+}
+
+div.chart
+{
+	margin: 10px auto;
+	padding: 10px;
+}
+
+div.notes
+{
+	margin: 10px auto;
+	padding: 10px;
+}
+
+div.error
+{
+	margin: 10px auto;
+	padding: 10px;
+	width: 95%;
+	border-width: 4px;
+	border-style: solid;
+	border-radius: 6px;
+	background-color: #ebebeb;
+}
+
+.border-story
+{
+	border-color: #999999;
+}
+
+.border-error
+{
+	border-color: #f00000;
+}
+
+.border-warn
+{
+	border-color: #f0f000;
+}
+
+.border-success
+{
+	border-color: #00f000;
+}
+
+.border-black
+{
+	border-color: #000000;
+}
+
+div.center
+{
+	margin: auto;
+}
+
+div.small
+{
+	margin: 5px auto;
+	padding: 5px;
+	width: 99%;
+	border-style: none;
+}
+
+div.large
+{
+	margin: 10px auto;
+	padding: 10px;
+	width: 95%;
+	border-style: none;
+}
+
+table.report-table
+{
+	width: 75%;
+	border-spacing: 10px;
+}
+
+tr.report-odd
+{
+	background-color: FloralWhite;
+}
+
+tr.report-even
+{
+	background-color: LightCyan;
+}
+
+th.center
+{
+	text-align: center;
+	padding: 5px;
+}
+
+td.report-table
+{
+	padding: 5px;
+}
+
+table.notes-table
+{
+	border-spacing: 3px;
+}
+
+td.notes-table
+{
+	padding: 3px;
+}
+
+table.table
+{
+	border: none;
+	border-spacing : 2px;
+	border-collapse: separate !important;
+	margin: auto;
+}
+
+table.story
+{
+	width: 100%;
+	border-spacing: 5px;
+}
+
+table.members
+{
+	width: 75%;
+	border-spacing: 10px;
+}
+
+th.members
+{
+	text-align: left;
+	border-bottom: 1px solid #dddddd;
+	padding: 5px;
+}
+
+td.members
+{
+	text-align: left;
+	border-bottom: 1px solid #dddddd;
+	padding: 5px;
+}
+
+.footer 
+{
+	font-size: smaller;
+	color: #999999;
+	text-align: center;
+}
+
+.required
+{
+	color: Red;
+}
+
+.price_alert
+{
+	background-color: Coral;
+}
+
+.trailing_alert
+{
+	background-color: LightSalmon;
+}
+
+.benchmark_alert
+{
+	background-color: Gold;
+}
+
