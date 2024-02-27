@@ -4,9 +4,9 @@ This is the first of four repoistories for the Invest website.
 
 Other repos        | Description
 ------------------ | ----------------------------------------------------------------
-<a href='https://github.com/tstevelt/invest_reports'>invest_programs</a>    | Programs to load data, update the database, etc.
 <a href='https://github.com/tstevelt/invest_programs'>invest_reports</a>     | Reports called by invest.cgi
-invest_extra      | Additional programs for stock market research or db maintenance. Not been uploaded to github as of Feb 26th.
+<a href='https://github.com/tstevelt/invest_reports'>invest_programs</a>    | Programs to load data, update the database, etc.
+<a href='https://github.com/tstevelt/invest_extra'>invest_extra</a>     | Additional programs for stock market research or db maintenance.
 
 The live website is located at <https://stocks.silverhammersoftware.com>
 
