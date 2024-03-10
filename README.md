@@ -1,15 +1,5 @@
 ## Investment Research and Portfolio Tracking Web Site
 
-This is the first of four repoistories for the Invest website.
-
-Other repos        | Description
------------------- | ----------------------------------------------------------------
-<a href='https://github.com/tstevelt/invest_programs'>invest_reports</a>     | Reports called by invest.cgi
-<a href='https://github.com/tstevelt/invest_reports'>invest_programs</a>    | Programs to load data, update the database, etc.
-<a href='https://github.com/tstevelt/invest_extra'>invest_extra</a>     | Additional programs for stock market research or db maintenance.
-
-The live website is located at <https://stocks.silverhammersoftware.com>
-
 ### Features
 Anonymous user
     Accumulate/Distribution Ratios - See below - Past 10 days. FREE, no sign-in needed.
@@ -30,19 +20,8 @@ Paid subscriber
     Portfolio and WatchList Alerts sent daily based on your setup for each stock
     Unlimited referral fees. You can earn more than the cost of a subscription!
 
-### Notes
-Contains two directories, a library (invlib) and source code for the website (invest).
-To make invest.cgi will also require these libraries:
-Library            | Description
------------------- | ----------------------------------------------------------------
-weblib.a           | Located at github tstevelt/weblib
-dbylib.a           | Located at github tstevelt/dbylib
-shslib.a           | Located at github tstevelt/shslib
-libta_lib.a        | Technical Analysis library
-libmysqlclient.so  | Maria DB library
+The live website is located at <https://stocks.silverhammersoftware.com>
 
-To use this website you will need a mysql/mariadb database. The schema is located in the invlib directory.
-You will also need data. I recommend IEX cloud.
+### Installation
 
-
-
+<a href='https://github.com/tstevelt/invest_website/blob/main/INSTALL.md'>Installation instructions</a>
