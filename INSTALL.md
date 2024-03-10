@@ -7,10 +7,10 @@ In order to build the website on your server, you wiil need some additional libr
 
 Library            | Description
 ------------------ | ----------------------------------------------------------------
-<https://github.com/tstevelt/weblib> | Library of HTML, JavaScript and CSS functions
-<https://github.com/tstevelt/dbylib> | Library of function to simplify mysql programming.
-https://github.com/tstevelt/shslib> | Low level functions for dates, strings, etc. 
-<https://github.com/TA-Lib/ta-lib> | Technical Analysis library
+<a href='https://github.com/tstevelt/weblib>weblib</a> | Library of HTML, JavaScript and CSS functions
+<a href='https://github.com/tstevelt/dbylib>dbylib</a> | Library of function to simplify mysql programming.
+<a href='https://github.com/tstevelt/shslib>shslib</a> | Low level functions for dates, strings, etc. 
+<a href='https://github.com/TA-Lib/ta-lib>ta-lib</a> | Technical Analysis library
 libmysqlclient.so  | MariaDB or MySql
 
 ### Additional programs
