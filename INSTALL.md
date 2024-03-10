@@ -10,7 +10,7 @@ Library            | Description
 <a href='https://github.com/tstevelt/weblib'>weblib</a> | Library of HTML, JavaScript and CSS functions
 <a href='https://github.com/tstevelt/dbylib'>dbylib</a> | Library of function to simplify mysql programming.
 <a href='https://github.com/tstevelt/shslib'>shslib</a> | Low level functions for dates, strings, etc. 
-<a href='https://github.com/TA-Lib/ta-lib>ta-lib'</a> | Technical Analysis library
+<a href='https://github.com/TA-Lib/ta-lib'>ta-lib</a> | Technical Analysis library
 libmysqlclient.so  | MariaDB or MySql
 
 ### Additional programs
