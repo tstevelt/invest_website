@@ -41,7 +41,7 @@ int main ( int argc, char *argv[] )
 		MyCookie.LoggedIn = 1;
 		MyCookie.Counter  = 1;
 
-		seed_random_with_usec ();
+		shs_seed_random ();
 
 		for ( xt = 1; xt <= 100; xt++ )
 		{
