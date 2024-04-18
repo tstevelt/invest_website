@@ -336,6 +336,22 @@ void GetInput ()
 		{
 			ChartSlow =  nsAtoi ( webValues[xa] );
 		}
+		else if ( nsStrcmp ( webNames[xa], "CashT" ) == 0 )
+		{
+			CashT =  nsAtof ( webValues[xa] );
+		}
+		else if ( nsStrcmp ( webNames[xa], "BondT" ) == 0 )
+		{
+			BondT =  nsAtof ( webValues[xa] );
+		}
+		else if ( nsStrcmp ( webNames[xa], "DomT" ) == 0 )
+		{
+			DomT =  nsAtof ( webValues[xa] );
+		}
+		else if ( nsStrcmp ( webNames[xa], "ForT" ) == 0 )
+		{
+			ForT =  nsAtof ( webValues[xa] );
+		}
 
 		else if ( nsStrcmp ( webNames[xa], "SubmitSignup" ) == 0 )
 		{
@@ -352,6 +368,14 @@ void GetInput ()
 		else if ( nsStrcmp ( webNames[xa], "SubmitChangeEmail" ) == 0 )
 		{
 			RunMode = MODE_CHANGE_EMAIL;
+		}
+
+		else if ( nsStrcmp ( webNames[xa], "Button" ) == 0 )
+		{
+			if ( nsStrcmp ( webValues[xa], "SubmitProfile" ) == 0 )
+			{
+				RunMode = MODE_SAVE_PROFILE;
+			}
 		}
 
 		/*----------------------------------------------------------

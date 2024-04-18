@@ -97,10 +97,10 @@ int LoadMemberCB ( MYSQL *MySql, char * WhereClause, char * OrderByClause, XMEMB
 			ptrMember->xmchrtfast =  nsAtoi( qryMember->EachRow[19] );
 
 // McashT,MbondT,MdomT,MforT
-			ptrMember->xmcasht = nsAtof( qryMember->EachRow[21] );
-			ptrMember->xmbondt = nsAtof( qryMember->EachRow[22] );
-			ptrMember->xmdomt  = nsAtof( qryMember->EachRow[23] );
-			ptrMember->xmfort  = nsAtof( qryMember->EachRow[24] );
+			ptrMember->xmcasht = nsAtof( qryMember->EachRow[20] );
+			ptrMember->xmbondt = nsAtof( qryMember->EachRow[21] );
+			ptrMember->xmdomt  = nsAtof( qryMember->EachRow[22] );
+			ptrMember->xmfort  = nsAtof( qryMember->EachRow[23] );
 
 			if ( CallBack != NULL )
 			{

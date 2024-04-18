@@ -66,6 +66,8 @@ void PaintProfile ()
 	printf ( "<input type='hidden' id='MenuIndex' name='MenuIndex' value='%d'>\n", MenuIndex );
 #endif
 
+	printf ( "<input type='hidden' id='Button' name='Button' value='unknown'>\n" );
+
 	/*----------------------------------------------------------
 		change email address
 	----------------------------------------------------------*/
@@ -128,15 +130,15 @@ void PaintProfile ()
 		printf ( "</tr>\n" );
 
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Your name</td>\n" );
-		printf ( "<td width='60%%'><input type='search' name='SignupName' size='35' maxlength='30'\n" );
+		printf ( "<td>Your name</td>\n" );
+		printf ( "<td><input type='search' name='SignupName' size='35' maxlength='30'\n" );
 		printf ( " value='%s'>\n", xmember.xmname );
 		printf ( "</td>\n" );
 		printf ( "</tr>\n" );
 
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Pager</td>\n" );
-		printf ( "<td width='60%%'><input type='search' name='SignupPager' size='65' maxlength='60'\n" );
+		printf ( "<td>Pager</td>\n" );
+		printf ( "<td><input type='search' name='SignupPager' size='65' maxlength='60'\n" );
 		printf ( " value='%s'>\n", xmember.xmpager );
 		printf ( "</td>\n" );
 		printf ( "</tr>\n" );
@@ -148,7 +150,7 @@ void PaintProfile ()
 		printf ( "</tr>\n" );
 
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Promotion Code</td>\n" );
+		printf ( "<td>Promotion Code</td>\n" );
 		if ( nsStrlen ( xmember.xmmypromo ) > 0 )
 		{
 			printf ( "<td>%s</td>\n", xmember.xmmypromo );
@@ -174,8 +176,8 @@ void PaintProfile ()
 			chart options
 		----------------------------------------------------------*/
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Chart Days</td>\n" );
-		printf ( "<td width='60%%'>\n" );
+		printf ( "<td>Chart Days</td>\n" );
+		printf ( "<td>\n" );
 		printf ( "<select name='ChartNumber'>\n" );
 		printf ( "<option value='6'%s>6 Months</option>\n",   xmember.xmchrtnum == 6 ? " selected" : "" );
 		printf ( "<option value='12'%s>12 Months</option>\n", xmember.xmchrtnum == 12 ? " selected" : "" );
@@ -187,8 +189,8 @@ void PaintProfile ()
 
 
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Chart Fast Average</td>\n" );
-		printf ( "<td width='60%%'>\n" );
+		printf ( "<td>Chart Fast Average</td>\n" );
+		printf ( "<td>\n" );
 		printf ( "<select name='ChartFast'>\n" );
 		printf ( "<option value='5'%s>5 Days</option>\n", xmember.xmchrtfast == 5 ? " selected" : "" );
 		printf ( "<option value='10'%s>10 Days</option>\n", xmember.xmchrtfast == 10 ? " selected" : "" );
@@ -201,8 +203,8 @@ void PaintProfile ()
 
 
 		printf ( "<tr>\n" );
-		printf ( "<td width='40%%'>Chart Slow Average</td>\n" );
-		printf ( "<td width='60%%'>\n" );
+		printf ( "<td>Chart Slow Average</td>\n" );
+		printf ( "<td>\n" );
 		printf ( "<select name='ChartSlow'>\n" );
 		printf ( "<option value='10'%s>10 Days</option>\n", xmember.xmchrtslow == 10 ? " selected" : "" );
 		printf ( "<option value='20'%s>20 Days</option>\n", xmember.xmchrtslow == 20 ? " selected" : "" );
@@ -210,6 +212,37 @@ void PaintProfile ()
 		printf ( "<option value='100'%s>100 Days</option>\n", xmember.xmchrtslow == 100 ? " selected" : "" );
 		printf ( "<option value='200'%s>200 Days</option>\n", xmember.xmchrtslow == 200 ? " selected" : "" );
 		printf ( "</select>\n" );
+		printf ( "</td>\n" );
+		printf ( "</tr>\n" );
+
+		/*----------------------------------------------------------
+			added target allocation fields. 04/18/2024
+		----------------------------------------------------------*/
+		printf ( "<tr>\n" );
+		printf ( "<td>Cash Target</td>\n" );
+		printf ( "<td>\n" );
+		printf ( "<input type='search' name='CashT' id='CashT' value='%.2f'>\n", xmember.xmcasht );
+		printf ( "</td>\n" );
+		printf ( "</tr>\n" );
+
+		printf ( "<tr>\n" );
+		printf ( "<td>Fixed Income  Target</td>\n" );
+		printf ( "<td>\n" );
+		printf ( "<input type='search' name='BondT' id='BondT' value='%.2f'>\n", xmember.xmbondt );
+		printf ( "</td>\n" );
+		printf ( "</tr>\n" );
+
+		printf ( "<tr>\n" );
+		printf ( "<td>Domestic Equity Target</td>\n" );
+		printf ( "<td>\n" );
+		printf ( "<input type='search' name='DomT' id='DomT' value='%.2f'>\n", xmember.xmdomt );
+		printf ( "</td>\n" );
+		printf ( "</tr>\n" );
+
+		printf ( "<tr>\n" );
+		printf ( "<td>Foreign Equity Target</td>\n" );
+		printf ( "<td>\n" );
+		printf ( "<input type='search' name='ForT' id='ForT' value='%.2f'>\n", xmember.xmfort );
 		printf ( "</td>\n" );
 		printf ( "</tr>\n" );
 
@@ -223,7 +256,8 @@ void PaintProfile ()
 		}
 		else
 		{
-			printf ( "<input type='submit' name='SubmitProfile' value='Save Changes'>\n" );
+			// printf ( "<input type='submit' name='SubmitProfile' value='Save Changes'>\n" );
+			printf ( "<input type='button' name='SubmitProfile' value='Save Changes' onclick='javascript:SubmitAllocate_100(this);'>\n" );
 		}
 		printf ( "</td>\n" );
 		printf ( "</tr>\n" );

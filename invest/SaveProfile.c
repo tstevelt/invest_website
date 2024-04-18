@@ -39,7 +39,11 @@ void SaveProfile ()
 		( nsStrcmp ( xmember.xmpager, SignupPager ) == 0 ) &&
 		( xmember.xmchrtnum == ChartNumber        )        &&
 		( xmember.xmchrtfast == ChartFast         )        &&
-		( xmember.xmchrtslow == ChartSlow         ))
+		( xmember.xmchrtslow == ChartSlow         )        &&
+		( xmember.xmcasht == CashT                )        &&
+		( xmember.xmbondt == BondT                )        &&
+		( xmember.xmdomt == DomT                  )        &&
+		( xmember.xmfort == ForT                  ))
 	{
 		SafeError ( COLOR_WARN, "Nothing to do" );
 		return;
@@ -49,8 +53,10 @@ void SaveProfile ()
 		save name
 	----------------------------------------------------------*/
 	snprintf ( Statement, sizeof(Statement),
-		"update member set Mname = '%s', Mpager = '%s', Mchrtnum = %d, Mchrtfast = %d, Mchrtslow = %d where member.id = %ld", 
-			SignupName, SignupPager, /* IncludeDividend, */ ChartNumber, ChartFast, ChartSlow, CookieMember.xid );
+"update member set Mname = '%s', Mpager = '%s', Mchrtnum = %d, Mchrtfast = %d, Mchrtslow = %d, \
+ McashT = %.2f, MbondT = %.2f, MdomT = %.2f, MforT = %.2f \
+ where member.id = %ld", 
+			SignupName, SignupPager, /* IncludeDividend, */ ChartNumber, ChartFast, ChartSlow, CashT, BondT, DomT, ForT, CookieMember.xid );
 
 	dbyUpdate ( "SaveProfile", &MySql, Statement, 0, LogFileName );
 

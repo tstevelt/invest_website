@@ -25,6 +25,7 @@
 #include	"invest.h"
 
 static double TotalShares;
+static int DebugChkInput = 0;
 
 static int ToPortfolioArray ()
 {
@@ -56,6 +57,13 @@ void ChkInput ()
 	tvec = time ( NULL );
 
 	SetMemberLimits ( xmember.xmrole[0] );
+
+	if ( DebugChkInput )
+	{
+		char	message[128];
+		sprintf ( message, "RunMode %d, CashT %.2f", RunMode, CashT );
+		SafeError ( COLOR_ERROR, message );
+	}
 
 	switch ( RunMode )
 	{
@@ -150,6 +158,15 @@ if (( AcceptAllRisks == 0 ) || ( NotAFinancialAdvisor == 0 ) || ( DoFurtherResea
 					RunMode = MODE_UNKNOWN;
 				}
 #endif
+			}
+			else if ( RunMode == MODE_SAVE_PROFILE )
+			{
+				double	Total = CashT + BondT + DomT + ForT;
+				if ( Total != 100.0 )
+				{
+					SafeError ( COLOR_ERROR, "Allocation targets must total 100 percent" );
+					RunMode = MODE_UNKNOWN;
+				}
 			}
 			break;
 

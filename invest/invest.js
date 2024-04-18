@@ -77,8 +77,27 @@ function SubmitTarget ( ReportFormatID )
 		window.document.invest.target = '_self';
 	}
 
-
 	return ( true );
+}
+
+function SubmitAllocate_100 ()
+{
+	var CashPercent = 1.0 * document.getElementById ( 'CashT' ).value;
+	var BondPercent = 1.0 * document.getElementById ( 'BondT' ).value;
+	var DomPercent  = 1.0 * document.getElementById ( 'DomT' ).value;
+	var ForPercent  = 1.0 * document.getElementById ( 'ForT' ).value;
+	var Total = CashPercent + BondPercent + DomPercent + ForPercent;
+
+	if ( Total != 100.0 )
+	{
+		alert ( 'Allocation targets must total 100 percent, not ' + Total  );
+	}
+	else
+	{
+		var elemButton = document.getElementById ( 'Button' );
+		elemButton.value = 'SubmitProfile';
+		document.invest.submit();
+	}
 }
 
 function AlertTypeToggle ( SelectorObj )
