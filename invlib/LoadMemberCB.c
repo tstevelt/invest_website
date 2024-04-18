@@ -72,6 +72,7 @@ int LoadMemberCB ( MYSQL *MySql, char * WhereClause, char * OrderByClause, XMEMB
 		{
 
 // id, Mname, Memail, Mpager, Mpassword, Mstatus, Mrole, Mipaddr, Minsdt, Mlogdt, Msuborig, Msubstart, Msubpaid, Msubexpire, Mmypromo, Mrefpromo, Mrefpaid, Mchrtnum, Mchrtslow, Mchrtfast"
+// #define FIELDS_MEMBER  "id,Mname,Memail,Mpager,Mpassword,Mstatus,Mrole,Mipaddr,Minsdt,Mlogdt,Msuborig,Msubstart,Msubpaid,Msubexpire,Mmypromo,Mrefpromo,Mrefpaid,Mchrtnum,Mchrtslow,Mchrtfast,McashT,MbondT,MdomT,MforT"
 
 			ptrMember->xid         =  nsAtol( qryMember->EachRow[0] );
 			snprintf ( ptrMember->xmname, sizeof(ptrMember->xmname), "%s", qryMember->EachRow[1] );
@@ -94,6 +95,12 @@ int LoadMemberCB ( MYSQL *MySql, char * WhereClause, char * OrderByClause, XMEMB
 			ptrMember->xmchrtnum =  nsAtoi( qryMember->EachRow[17] );
 			ptrMember->xmchrtslow =  nsAtoi( qryMember->EachRow[18] );
 			ptrMember->xmchrtfast =  nsAtoi( qryMember->EachRow[19] );
+
+// McashT,MbondT,MdomT,MforT
+			ptrMember->xmcasht = nsAtof( qryMember->EachRow[21] );
+			ptrMember->xmbondt = nsAtof( qryMember->EachRow[22] );
+			ptrMember->xmdomt  = nsAtof( qryMember->EachRow[23] );
+			ptrMember->xmfort  = nsAtof( qryMember->EachRow[24] );
 
 			if ( CallBack != NULL )
 			{

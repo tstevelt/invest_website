@@ -39,7 +39,7 @@ CREATE TABLE `average` (
   PRIMARY KEY (`Aid`),
   UNIQUE KEY `Aticker` (`Aticker`,`Adate`),
   CONSTRAINT `average_stock` FOREIGN KEY (`Aticker`) REFERENCES `stock` (`Sticker`)
-) ENGINE=InnoDB AUTO_INCREMENT=6545524 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7489978 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `dividend` (
   PRIMARY KEY (`id`),
   KEY `dividend_stock` (`Dticker`),
   CONSTRAINT `dividend_stock` FOREIGN KEY (`Dticker`) REFERENCES `stock` (`Sticker`)
-) ENGINE=InnoDB AUTO_INCREMENT=7049 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7232 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +180,7 @@ CREATE TABLE `history` (
   PRIMARY KEY (`Hid`),
   UNIQUE KEY `Hticker` (`Hticker`,`Hdate`),
   CONSTRAINT `history_stock` FOREIGN KEY (`Hticker`) REFERENCES `stock` (`Sticker`)
-) ENGINE=InnoDB AUTO_INCREMENT=6977950 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7927016 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,6 +241,10 @@ CREATE TABLE `member` (
   `Mchrtnum` int(11) DEFAULT 6,
   `Mchrtslow` int(11) DEFAULT 200,
   `Mchrtfast` int(11) DEFAULT 50,
+  `McashT` double NOT NULL DEFAULT 5,
+  `MbondT` double NOT NULL DEFAULT 25,
+  `MdomT` double NOT NULL DEFAULT 60,
+  `MforT` double NOT NULL DEFAULT 10,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=520 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -458,4 +462,4 @@ CREATE TABLE `watchlist` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-26  8:59:53
+-- Dump completed on 2024-04-18  9:56:13

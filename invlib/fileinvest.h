@@ -202,9 +202,13 @@ typedef struct
 	long	xmchrtnum;
 	long	xmchrtslow;
 	long	xmchrtfast;
+	double	xmcasht;
+	double	xmbondt;
+	double	xmdomt;
+	double	xmfort;
 } XMEMBER;
 TYPE XMEMBER xmember;
-#define FIELDS_MEMBER  "id,Mname,Memail,Mpager,Mpassword,Mstatus,Mrole,Mipaddr,Minsdt,Mlogdt,Msuborig,Msubstart,Msubpaid,Msubexpire,Mmypromo,Mrefpromo,Mrefpaid,Mchrtnum,Mchrtslow,Mchrtfast"
+#define FIELDS_MEMBER  "id,Mname,Memail,Mpager,Mpassword,Mstatus,Mrole,Mipaddr,Minsdt,Mlogdt,Msuborig,Msubstart,Msubpaid,Msubexpire,Mmypromo,Mrefpromo,Mrefpaid,Mchrtnum,Mchrtslow,Mchrtfast,McashT,MbondT,MdomT,MforT"
 #endif
 
 #ifdef PAYMENTS
