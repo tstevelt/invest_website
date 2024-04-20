@@ -555,17 +555,38 @@ SafeError ( COLOR_ERROR, "%s", cmdline );
 			sprintf ( cmdline, "rpt_portfolio -member %ld", CookieMember.xid );
 			switch ( ReportStyle[ndx] )
 			{
-				case STYLE_BASE:  strcat ( cmdline, " -style base" );  break;
-				case STYLE_FUNDAMENTAL:  strcat ( cmdline, " -style fundamental" );  break;
-				case STYLE_TODAY:  strcat ( cmdline, " -style today" );  break;
-				case STYLE_ALERTS: strcat ( cmdline, " -style alerts" ); break;
-				case STYLE_FULL: strcat ( cmdline, " -style full" ); break;
-				case STYLE_OVERNIGHT:  strcat ( cmdline, " -style overnight" );  break;
-				case STYLE_YOY:  strcat ( cmdline, " -style yoy" );  break;
-				case STYLE_MSTAR: strcat ( cmdline, " -style mstar" ); break;
-				case STYLE_CUSTOM: strcat ( cmdline, " -style custom" ); break;
+				case STYLE_BASE:  
+					strcat ( cmdline, " -style base" ); 
+					break;
+				case STYLE_FUNDAMENTAL:  
+					strcat ( cmdline, " -style fundamental" ); 
+					break;
+				case STYLE_TODAY:  
+					strcat ( cmdline, " -style today" ); 
+					break;
+				case STYLE_ALERTS: 
+					strcat ( cmdline, " -style alerts" );
+					break;
+				case STYLE_FULL: 
+					strcat ( cmdline, " -style full" );
+					break;
+				case STYLE_OVERNIGHT:  
+					strcat ( cmdline, " -style overnight" ); 
+					break;
+				//case STYLE_YOY:  
+				//	strcat ( cmdline, " -style yoy" ); 
+				//	break;
+				case STYLE_MSTAR: 
+					strcat ( cmdline, " -style mstar" );
+					break;
+				case STYLE_CUSTOM: 
+					strcat ( cmdline, " -style custom" );
+					break;
 				case STYLE_BUCKETS: 
 					sprintf ( cmdline, "rpt_buckets -member %ld", CookieMember.xid );
+					break;
+				case STYLE_PERFORMANCE: 
+					sprintf ( cmdline, "rpt_porthist -member %ld", CookieMember.xid );
 					break;
 				default:
 					// SafeError ( COLOR_ERROR, "TakeAction: unknown style %d.", ReportStyle[ndx] );

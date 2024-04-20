@@ -66,6 +66,7 @@ TYPE	int			MungeData;
 #define		STYLE_FUNDAMENTAL	'X'
 #define		STYLE_YOY			'Y'
 #define		STYLE_CUSTOM		'C'
+#define		STYLE_PERFORMANCE	'R'
 
 #define		STYPE_BOND			'B'
 #define		STYPE_ETF			'E'
