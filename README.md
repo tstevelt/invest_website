@@ -1,5 +1,6 @@
 ## Investment Research and Portfolio Tracking Web Site
 
+
 ### Features
 
 **Anonymous user**
@@ -22,6 +23,16 @@
 - Unlimited referral fees. You can earn more than the cost of a subscription!
 
 The live website is located at <https://stocks.silverhammersoftware.com>
+
+### Live Website Service Disruption
+
+Our data provider, IEX Cloud, announced that they will be stopping all service on August 31, 2024.  We are currently investigating other service providers with reasonable prices.  In the meantime, we are only loading data for securities which are held in portfolios.
+
+Other impacts include:
+- Fundamental data is severely sporatic
+- News is no longer available
+- Screeeners no longer work, as there isn't any data for them to search
+
 
 ### Installation
 
