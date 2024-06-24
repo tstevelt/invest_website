@@ -28,7 +28,7 @@
 #define DENY_MULTIPLE_POSITIONS
 #undef DENY_MULTIPLE_POSITIONS
 
-#define		CSS_VERSION		"20220811_02"
+#define		CSS_VERSION		"20240624_03"
 
 #define		TABLE_CLASS		"table-condensed table-borderless"
 

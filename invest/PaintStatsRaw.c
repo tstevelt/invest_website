@@ -26,7 +26,6 @@
 
 void PaintStatsRaw ( char *Ticker, char *Name )
 {
-	static	int		firstpass = 1;
 	char	*TempFile = "/var/local/tmp/stats.json";
 	char	cmdline[1024];
 	FILE	*fp;
@@ -34,12 +33,6 @@ void PaintStatsRaw ( char *Ticker, char *Name )
 	int		nr;
 	int		inNumber;
 	int		sawDecimal;
-
-	if ( firstpass )
-	{
-		GetInvestCfg ( 0 );
-		firstpass = 0;
-	}
 
 	printf ( "<div class='chart'>\n" );
 	printf ( "<pre>\n" );

@@ -18,6 +18,7 @@ menu 9 Credits
 menu 10 Admin
 menu 11 Logout
 
+page 1 notice.html
 page 1 sf=4		# features
 page 1 portfolio.html
 page 1 screeners.html
@@ -31,7 +32,8 @@ page 3 sf=1		# screeners
 
 page 4 sf=2		# watchlist and portfolio
 
-page 5 sf=11
+# page 5 sf=11
+page 5 notice.html
 
 page 6 sf=5		# signup
 
@@ -43,7 +45,6 @@ page 8 sf=3		# profile
 page 9 credits.html
 
 page 10 sf=6		# dbstats
-page 10 todo.html
 page 10 maint.html
 
 page 11 logout.html

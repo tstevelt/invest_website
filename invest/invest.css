@@ -44,6 +44,12 @@ input.resize
 	width: 85%
 }
 
+.disabled 
+{
+	color: #cc0000 !important;
+	background-color: #ffffff !important;
+}
+
 textarea
 {
 	width: 85%;

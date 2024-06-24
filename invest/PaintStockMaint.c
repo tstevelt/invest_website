@@ -324,7 +324,7 @@ void PaintStockMaint ()
 		}
 
 		printf ( "&emsp;" );
-		printf ( "<input type='submit' name='SubmitStockStatsRaw' value='Stats (raw)' onclick='javascript:SetNamed(\"sheet\");'>\n" );
+		printf ( "<input class='disabled' type='submit' name='SubmitStockStatsRaw' value='Stats (raw)' onclick='javascript:SetNamed(\"sheet\");' disabled>\n" );
 
 		printf ( "&emsp;" );
 		printf ( "<input type='submit' name='SubmitSaveStock' value='Save' %s>\n", SET_SELF );

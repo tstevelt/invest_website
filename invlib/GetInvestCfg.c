@@ -8,6 +8,7 @@
 	Who		Date		Modification
 	---------------------------------------------------------------------
 	tms		02/25/2024	Added PayPal
+	tms		06/24/2024	IEX dead
 
 ----------------------------------------------------------------------------*/
 //     Stock market website
@@ -45,6 +46,12 @@ void GetInvestCfg( int UseTiingo )
 	int		ErrorCount = 0;
     char	*ptrName;
 	char	*ptrValue;
+
+	if ( UseTiingo == 0 )
+	{
+		fprintf ( stderr, "IEX Cloud is dead.<br>\n" );
+		exit ( 1 );
+	}
 
 	/*----------------------------------------------------------
 		set defaults

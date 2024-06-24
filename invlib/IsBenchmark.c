@@ -39,7 +39,7 @@ int IsBenchmark ( char *Ticker )
 		return ( 0 );
 	}
 
-	if ( nsStrstr  ( ":SPY:DIA:QQQ:IWN:EFA:", Ticker ) != (char *)0 )
+	if ( nsStrstr  ( ":SPY:DIA:QQQ:IWM:EFA:", Ticker ) != (char *)0 )
 	{
 		return ( 1 );
 	}

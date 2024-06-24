@@ -293,7 +293,7 @@ void PaintAdmin ()
 #else
 	sprintf ( Statement, 
 		"select count(*) from stock, history \
-		  where Slast < (select max(Slast) from stock) \
+		  where Slast is not NULL and Slast < (select max(Slast) from stock) \
 			and Hticker = Sticker and Hdate = Slast" );
 
 	if ( DebugPaintAdmin )
@@ -331,7 +331,7 @@ void PaintAdmin ()
 		----------------------------------------------------------*/
 		sprintf ( Statement, 
 			"select Sticker, Stype, Sname, Slast, Sdj, Snasdaq, Ssp500, Srussell, Hclose from stock, history \
-			  where Slast < (select max(Slast) from stock) \
+			  where Slast is not NULL and Slast < (select max(Slast) from stock) \
 				and Hticker = Sticker and Hdate = Slast \
 			  order by Slast " );
 
@@ -346,6 +346,8 @@ void PaintAdmin ()
 
 		TotalCount += RecordCount;
 
+#ifdef INCLUDE_NULL_DATE
+#define INCLUDE_NULL_DATE
 		/*----------------------------------------------------------
 			stocks with NULL last date
 		----------------------------------------------------------*/
@@ -362,6 +364,7 @@ void PaintAdmin ()
 		RecordCount = dbySelectCB ( "invest", &MySql, Statement, (int(*)()) EachStock, LogFileName );
 
 		TotalCount += RecordCount;
+#endif
 	}
 
 #endif

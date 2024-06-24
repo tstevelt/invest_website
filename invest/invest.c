@@ -83,7 +83,7 @@ int main ( int argc, char *argv[] )
 
 	PaintTop ();
 
-	GetInvestCfg ( 0 );
+	GetInvestCfg ( 1 );
 
 	StartMySQL ( &MySql, "invest" );
 

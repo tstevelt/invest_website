@@ -42,6 +42,7 @@ static RECORD Array[] =
 	{ "IWM", "Russell 2000" },
 	{ "QQQ", "NASDAQ 100" },
 	{ "EFA", "Foreign Developed" },
+#ifdef HAVE_ALL_DATA
 	{ "XLC", "Comm Srvcs Sector" },
 	{ "XLP", "Consumer Staples Sector" },
 	{ "XLY", "Consumer Dscrtnry Sector" },
@@ -53,6 +54,7 @@ static RECORD Array[] =
 	{ "XLRE", "Real Estate Sector" },
 	{ "XLK", "Technology Sector" },
 	{ "XLU", "Utilities Sector" },
+#endif
 };
 
 static int Count = sizeof(Array) / sizeof(RECORD);
@@ -62,7 +64,6 @@ static int Days;
 void PaintMovingAverages ( int InAccordian )
 {
 	char	*Class;
-	char	cmdline [1024];
 	double	Average[6];
 
 	if ( InAccordian == 0 )
@@ -136,8 +137,11 @@ void PaintMovingAverages ( int InAccordian )
 	printf ( "</table>\n" );
 	printf ( "<br>\n" );
 
+#ifdef HAVE_ALL_DATA
+	char	cmdline [1024];
 	sprintf ( cmdline, "/usr/local/bin/getstats -report -neg" );
 	ForkAndExec ( cmdline, PRINT_DESTINATION_STDOUT );
+#endif
 
 	if ( InAccordian == 0 )
 	{
