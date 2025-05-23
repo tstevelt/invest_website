@@ -34,7 +34,7 @@ void TakeAction ( char Format )
 //	struct tm	*tm;
 	DATEVAL	dvStart;
 	DATEVAL	dvEnd;
-	int		xi, xl, ndx, len, ToScreen = 0;
+	int		xi, xl, ndx, len = 0, ToScreen = 0;
 	char	Fragment[128];
 	long	rv;
 	
@@ -573,9 +573,9 @@ SafeError ( COLOR_ERROR, "%s", cmdline );
 				case STYLE_OVERNIGHT:  
 					strcat ( cmdline, " -style overnight" ); 
 					break;
-				//case STYLE_YOY:  
-				//	strcat ( cmdline, " -style yoy" ); 
-				//	break;
+				case STYLE_YOY:  
+					strcat ( cmdline, " -style yoy" ); 
+					break;
 				case STYLE_MSTAR: 
 					strcat ( cmdline, " -style mstar" );
 					break;
@@ -593,7 +593,6 @@ SafeError ( COLOR_ERROR, "%s", cmdline );
 					printf ( "TakeAction: unknown style %d.<br>\n", ReportStyle[ndx] );
 					return;
 			}
- 				//-type {all*|stock|etf|fixed|cash}
 			switch ( StockType[ndx] )
 			{
 				case 'A': strcat ( cmdline, " -type all" ); break;

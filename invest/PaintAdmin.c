@@ -284,7 +284,7 @@ void PaintAdmin ()
 	sprintf ( Statement, 
 	"select Sticker, Stype, Sname, Slast, Sdj, Snasdaq, Ssp500, Srussell from stock \
 	  where (Sdj = 'Y' or Snasdaq = 'Y' or Ssp500 = 'Y' or Srussell = '1' or Srussell = '2') \
-		and Slast < (select max(Slast) from stock) order by Sname " );
+		and Slast < (select max(Slast) from stock where Stype != '%c) order by Sname ", STYPE_FX );
 
 	RecordCount = dbySelectCB ( "invest", &MySql, Statement, (int(*)()) EachStock, LogFileName );
 
@@ -293,8 +293,8 @@ void PaintAdmin ()
 #else
 	sprintf ( Statement, 
 		"select count(*) from stock, history \
-		  where Slast is not NULL and Slast < (select max(Slast) from stock) \
-			and Hticker = Sticker and Hdate = Slast" );
+		  where Slast is not NULL and Slast < (select max(Slast) from stock where Stype != '%c') \
+			and Hticker = Sticker and Hdate = Slast", STYPE_FX );
 
 	if ( DebugPaintAdmin )
 	{
@@ -320,7 +320,16 @@ void PaintAdmin ()
 		}
 	}
 
-	if ( RecordCount > MAXOUTOFDATE )
+	if ( DebugPaintAdmin )
+	{
+		printf ( "RecordCount: %ld<br>\n", RecordCount );
+	}
+
+	if ( RecordCount == 0 )
+	{
+		TotalCount = 0;
+	}
+	else if ( RecordCount > MAXOUTOFDATE )
 	{
 		TotalCount = RecordCount;
 	}
@@ -331,9 +340,8 @@ void PaintAdmin ()
 		----------------------------------------------------------*/
 		sprintf ( Statement, 
 			"select Sticker, Stype, Sname, Slast, Sdj, Snasdaq, Ssp500, Srussell, Hclose from stock, history \
-			  where Slast is not NULL and Slast < (select max(Slast) from stock) \
-				and Hticker = Sticker and Hdate = Slast \
-			  order by Slast " );
+			  where Slast is not NULL and Slast < (select max(Slast) from stock where Stype != '%c') \
+				and Hticker = Sticker and Hdate = Slast order by Slast ", STYPE_FX );
 
 		if ( DebugPaintAdmin )
 		{
@@ -353,7 +361,7 @@ void PaintAdmin ()
 		----------------------------------------------------------*/
 		sprintf ( Statement, 
 			"select Sticker, Stype, Sname, 'NULL', Sdj, Snasdaq, Ssp500, Srussell, 0.0 from stock \
-			  where Slast is NULL and Stype != 'B' and Stype != 'C' order by Sname " );
+			  where Slast is NULL and Stype != '%c' and Stype != '%c' order by Sname ", STYPE_BOND, STYPE_CRYPTO );
 
 		if ( DebugPaintAdmin )
 		{

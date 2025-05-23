@@ -11,7 +11,8 @@
 /*     You should have received a copy of the GNU Affero General Public License */
 /*     along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 .navbar-inverse {
-background-color : #3399cc;
+/* background-color : #3399cc; */
+background-color : #9933cc;
 border-color : #080808;
 }
 .navbar-inverse .navbar-brand {
@@ -33,7 +34,8 @@ background-color : transparent;
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
 color : #ffffff;
-background-color : #006699;
+/* background-color : #006699; */
+background-color : #009966;
 }
 .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:focus, .navbar-inverse .navbar-nav > .disabled > a:hover {
 color : #555555;

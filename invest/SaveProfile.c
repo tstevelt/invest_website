@@ -29,7 +29,9 @@
 
 void SaveProfile ()
 {
+#ifdef CAN_GET_DIVIDENDS
 	char	cmdline[1024];
+#endif
 
 	LoadMember ( &MySql, WhereClause, &xmember, 0 );
 
@@ -63,6 +65,8 @@ void SaveProfile ()
 	snprintf ( WhereClause, sizeof(WhereClause), "member.id = %ld", CookieMember.xid );
 	LoadMember ( &MySql, WhereClause, &xmember, 0 );
 
+#ifdef CAN_GET_DIVIDENDS
 	sprintf ( cmdline, "/usr/local/bin/getdiv -member %ld", CookieMember.xid );
 	ForkAndExec ( cmdline, PRINT_DESTINATION_ERROR_ARRAY );
+#endif
 }

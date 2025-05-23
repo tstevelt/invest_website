@@ -55,7 +55,7 @@ void PaintFundamentals ( char *Ticker, char *Name, char *Type, char *CikCode )
 			this is not company specific, but gives all companies at the requested date
 	---------------------------------------------------------------------------*/
 
-	sprintf ( CommandStart, "curl -s --user-agent tstevelt@silverhammersoftware.com" );
+	sprintf ( CommandStart, "/usr/bin/curl -s --user-agent tstevelt@silverhammersoftware.com" );
 
 	snprintf ( cmdline, sizeof(cmdline), 
 			"%s 'https://data.sec.gov/api/xbrl/companyfacts/CIK%s.json' > %s",
@@ -63,7 +63,8 @@ void PaintFundamentals ( char *Ticker, char *Name, char *Type, char *CikCode )
 
 	system ( cmdline );
 
-	snprintf ( cmdline, sizeof(cmdline), "/usr/local/bin/JsonTree %s -array last -error -wrap 100", TempFile );
+	// snprintf ( cmdline, sizeof(cmdline), "/usr/local/bin/JsonTree %s -array last -error -wrap 100", TempFile );
+	snprintf ( cmdline, sizeof(cmdline), "/usr/local/bin/JsonFake %s", TempFile );
 	ForkAndExec ( cmdline, PRINT_DESTINATION_STDOUT );
 
 	unlink ( TempFile );

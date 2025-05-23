@@ -42,6 +42,7 @@ static void PaintNeedAccount ( int Columns )
 void PaintReports ()
 {
 	int		IsDisabled = 0;
+#ifdef UNIX
 	int		OptionArray[4];
 	int		ndx;
 	/*----------------------------------------------------------
@@ -54,6 +55,7 @@ void PaintReports ()
 	----------------------------------------------------------*/
 	int		Within [] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 0 };
 	int		Dips   [] = { 3, 5, 10, 15, 20, 25, 30, 40, 50, 0 };
+#endif
 
 	if ( CookieMember.xid == 0 && NeedAccount == NEED_ACCOUNT_TOP )
 	{
@@ -95,6 +97,7 @@ void PaintReports ()
 printf ( "<div class='container'>\n" );
 printf ( "  <div class='panel-group' id='accordion'>\n" );
 
+#ifdef UNIX
 	/*----------------------------------------------------------
 		market moving averages
 	----------------------------------------------------------*/
@@ -123,6 +126,7 @@ printf ( "  <div class='panel-group' id='accordion'>\n" );
 	}
 
 	PaintEndReportStory ();
+#endif
 
 	/*----------------------------------------------------------
 		equity fundamentals
@@ -144,6 +148,7 @@ printf ( "  <div class='panel-group' id='accordion'>\n" );
 
 	PaintEndReportStory ();
 
+#ifdef UNIX
 	/*----------------------------------------------------------
 		ETF and MUTUALFUND fundamentals
 	----------------------------------------------------------*/
@@ -617,7 +622,9 @@ printf ( "  <div class='panel-group' id='accordion'>\n" );
 	}
 
 	PaintEndReportStory ();
+#endif
 
+#ifdef UNIX
 	/*----------------------------------------------------------
 		glossary
 	----------------------------------------------------------*/
@@ -633,6 +640,28 @@ printf ( "  <div class='panel-group' id='accordion'>\n" );
 	printf ( "<tr><td><b>Current trading days</b> - number of trading days ending with latest history</td></tr>\n" );
 	printf ( "<tr><td><b>Previous trading days</b> - number of trading days prior to the current period above.</td></tr>\n" );
 	printf ( "<tr><td><b>Format</b> - report format, if not screen, then sent to your email</td></tr>\n" );
+#else
+	PaintStartReportStory ( STORY_TITLE, "IEX DEAD", 0 );
+
+	printf ( "SYSTEM HAS LIMITED HISTORICAL DATA (ONLY FOR OWNED SECURITIES).<br>" );
+	printf ( "THESE SCREENERS ARE THEREFORE NOT USEFUL:<br>" );
+	printf ( "&emsp;Market moving averages<br>" );
+	printf ( "&emsp;Accumulate/distribute history<br>" );
+	printf ( "&emsp;ETF fundamentals screener<br>" );
+	printf ( "&emsp;Near old 52 week high (cup)<br>" );
+	printf ( "&emsp;Regression channel screener<br>" );
+	printf ( "&emsp;Accumulate/distribute volume screener<br>" );
+	printf ( "&emsp;Increasing volume screener<br>" );
+	printf ( "&emsp;Moving averages crossover screener<br>" );
+	printf ( "&emsp;Moving averages ratio screener<br>" );
+	printf ( "&emsp;-di/+di Crossover screener<br>" );
+	printf ( "&emsp;ADX trending screener<br>" );
+	printf ( "&emsp;Breakout screener<br>" );
+	printf ( "&emsp;RSI screener<br>" );
+	printf ( "&emsp;Compare to s&p 500<br>" );
+	printf ( "&emsp;Jeff Cooper hit and run screener<br>" );
+	printf ( "&emsp;Intrinsic value report (buy/hold/sell)<br>" );
+#endif
 	
 	PaintEndReportStory ();
 

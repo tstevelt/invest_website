@@ -26,6 +26,7 @@
 
 static	XPORTFOLIO	xtest;
 
+#ifdef CAN_GET_DIVIDENDS
 static	long	DividendCount;
 static	char	DividendMinDate[11];
 static	char	DividendMaxDate[11];
@@ -87,6 +88,7 @@ static void GetDividends ()
 		}
 	}
 }
+#endif
 
 void SavePortfolio ( int RunMode )
 {
@@ -182,12 +184,14 @@ DiffYak ( "Pbenchmark", xportfolio.xpbenchmark, xtest.xpbenchmark,  sizeof(xtest
 					SafeError ( COLOR_NORMAL, "SavePortfolio update okay." );
 				}
 
+#ifdef CAN_GET_DIVIDENDS
 				if (( RunMode == MODE_INSERT_PORTFOLIO                    ) ||
 					( nsStrcmp ( xportfolio.xpticker, xtest.xpticker ) != 0 ) ||
 					( nsStrcmp ( xportfolio.xpdate,   xtest.xpdate   ) != 0 ))
 				{
 					GetDividends ();
 				}
+#endif
 			}
 
 			if ( xportfolio.xpalerttype[0] !=  xtest.xpalerttype[0] )

@@ -78,7 +78,7 @@ int LoadMemberCB ( MYSQL *MySql, char * WhereClause, char * OrderByClause, XMEMB
 			snprintf ( ptrMember->xmname, sizeof(ptrMember->xmname), "%s", qryMember->EachRow[1] );
 			snprintf ( ptrMember->xmemail, sizeof(ptrMember->xmemail), "%s", qryMember->EachRow[2] );
 			snprintf ( ptrMember->xmpager, sizeof(ptrMember->xmpager), "%s", qryMember->EachRow[3] ? qryMember->EachRow[3] : " " );
-			snprintf ( ptrMember->xmpassword, sizeof(ptrMember->xmpassword), qryMember->EachRow[4] );
+			snprintf ( ptrMember->xmpassword, sizeof(ptrMember->xmpassword), "%s", qryMember->EachRow[4] );
 			ptrMember->xmstatus[0] =  qryMember->EachRow[5][0];
 			ptrMember->xmrole[0]   =  qryMember->EachRow[6][0];
 			sprintf ( ptrMember->xmipaddr, "%-16.16s", qryMember->EachRow[7] );

@@ -3,19 +3,11 @@ PROG=invest
 
 LIB = invest_64.a
 
-# XLIB = /usr/local/lib64/weblib.a /usr/local/lib64/invlib.a /usr/local/lib64/libta_lib.a /usr/local/lib64/dbylib.a /usr/local/lib64/shslib.a /usr/lib64/libmysqlclient.so  -lcurl -lz -lssl -luuid -lcrypto -lm
-
-XLIB = /usr/local/lib64/invlib.a /usr/local/lib64/dbylib.a /usr/local/lib64/weblib.a  /usr/local/lib64/shslib.a  \
-		/usr/local/lib/libmysqlclient.a \
-		/usr/local/lib/libssl.a \
-		/usr/local/lib/libcrypto.a \
-		/usr/local/lib/libta_lib.a \
-		/usr/local/Cellar/zlib/1.3.1/lib/libz.a
-
+XLIB = /usr/local/lib64/weblib.a /usr/local/lib64/invlib.a /usr/local/lib64/libta_lib.a /usr/local/lib64/dbylib.a /usr/local/lib64/shslib.a /usr/lib64/libmysqlclient.so  -lcurl -lz -lssl -luuid -lcrypto -lm
 
 DEF = /usr/local/include
 
-WEBDIR = /Users/tms/Sites/shs_stocks
+WEBDIR = /var/www/vhosts/shs_stocks/html
 WEBSTATE = /var/local/webstate/invest
 PRG =$(WEBDIR)/$(PROG).cgi
 
@@ -96,13 +88,6 @@ js:
 css:
 	cp -pv invest.css $(WEBDIR)/invest.css	
 	cp -pv my_navbar_colors.css $(WEBDIR)/my_navbar_colors.css
-
-contents_mac:
-	find MAC -name 'contents.db' -newer MAC_CONTENTS_STAMP -exec cp -pv {} $(WEBSTATE) \;
-	find MAC -name '*.html' -newer MAC_CONTENTS_STAMP -exec cp -pv {} $(WEBSTATE) \;
-	find MAC -name '*.pdf'  -newer MAC_CONTENTS_STAMP -exec cp -pv {} $(WEBDIR) \;
-	find MAC -name '*.png'  -newer MAC_CONTENTS_STAMP -exec cp -pv {} $(WEBDIR) \;
-	touch MAC_CONTENTS_STAMP
 
 contents_live:
 	find LIVE -name 'contents.db' -newer LIVE_CONTENTS_STAMP -exec cp -pv {} $(WEBSTATE) \;

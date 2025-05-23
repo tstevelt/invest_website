@@ -29,6 +29,7 @@ int main ( int argc, char *argv[] )
 	COOKIE_RECORD	MyCookie;
 	int		xi, xt, ndx;
 	long	xl;
+	unsigned int	TheSeed;
 
 	/*----------------------------------------------------------
 		cookie stuff has to be written before html starts.
@@ -41,7 +42,7 @@ int main ( int argc, char *argv[] )
 		MyCookie.LoggedIn = 1;
 		MyCookie.Counter  = 1;
 
-		shs_seed_random ();
+		TheSeed = shs_seed_random ();
 
 		for ( xt = 1; xt <= 100; xt++ )
 		{
@@ -51,6 +52,10 @@ int main ( int argc, char *argv[] )
 				SessionUnique[xi] = (char) xl;
 			}
 
+			/*----------------------------------------------------------
+				WTF nonsense it this!!!
+xxx			snprintf ( SessionFileName, sizeof ( SessionFileName ), "%u %d %s/%15.15s.session", TheSeed, xt, WEBSTATEDIR, SessionUnique );
+			----------------------------------------------------------*/
 			snprintf ( SessionFileName, sizeof ( SessionFileName ), "%s/%15.15s.session", WEBSTATEDIR, SessionUnique );
 
 			if ( access ( SessionFileName, F_OK ) == 0 )

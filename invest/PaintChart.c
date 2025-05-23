@@ -4,6 +4,11 @@
 	Date    : 2019-2024
 	Synopsis: Chart of a single stock.
 	Return  : 
+	
+	Who		Date		Modification
+	---------------------------------------------------------------------
+	tms		03/20/2025	Skip cash and bonds.
+	
 ----------------------------------------------------------------------------*/
 //     Stock market website
 // 
@@ -176,12 +181,18 @@ void PaintChart ( int RunMode, char *Ticker )
 	switch ( RunMode )
 	{
 		case MODE_WATCHLIST_CHART:
-			sprintf ( Statement, "select Wticker from watchlist where Wmember = '%ld' order by Wticker", CookieMember.xid );
+// sprintf ( Statement, "select Wticker from watchlist where Wmember = '%ld' order by Wticker", xmember.xid );
+sprintf ( Statement, 
+	"select Wticker from watchlist, stock where Wticker = Sticker and Stype != '%c' and Stype != '%c' and Wmember = '%ld' order by Wticker", 
+				STYPE_CRYPTO, STYPE_BOND, xmember.xid );
 			dbySelectCB ( "invest", &MySql, Statement, (int(*)()) EachTicker, LogFileName );
 			nsFclose ( fpChart );
 			break;
 		case MODE_PORTFOLIO_CHART:
-			sprintf ( Statement, "select Pticker from portfolio where Pmember = '%ld' order by Pticker", CookieMember.xid );
+// sprintf ( Statement, "select Pticker from portfolio where Pmember = '%ld' order by Pticker", xmember.xid );
+sprintf ( Statement, 
+	"select Pticker from portfolio, stock where Pticker = Sticker and Stype != '%c' and Stype != '%c' and Pmember = '%ld' order by Pticker", 
+				STYPE_CRYPTO, STYPE_BOND, xmember.xid );
 			dbySelectCB ( "invest", &MySql, Statement, (int(*)()) EachTicker, LogFileName );
 			nsFclose ( fpChart );
 			break;
@@ -223,12 +234,12 @@ void PaintChart ( int RunMode, char *Ticker )
 
 	sprintf ( WhereClause, "Sticker = '%s'", Ticker );
 	LoadStock ( &MySql, WhereClause, &xstock, 0, 0 );
-	if ( xstock.xstype[0] == 'C' )
+	if ( xstock.xstype[0] == STYPE_CRYPTO ) // if ( xstock.xstype[0] == 'C' )
 	{
 		struct tm	*tm;
 
 		/*----------------------------------------------------------
-			if Stype == 'C' then load from crypto instead of history
+			CRYPTO then load from crypto instead of history
 		----------------------------------------------------------*/
 		if ( xmember.xmchrtnum == 0 )
 		{
@@ -278,18 +289,42 @@ void PaintChart ( int RunMode, char *Ticker )
 	printf ( "<input type='hidden' id='ChartTicker' value='%s'>\n", Ticker );
 
 	printf ( "<div class='chart'>\n" );
-	printf ( "%s %s<br>\n", xstock.xsticker, xstock.xsname );
+	if ( xstock.xstype[0] == STYPE_FX && xstock.xstype2[0] == STYPE2_HUNDREDTH )
+	{
+		printf ( "%s %s Currency in hundredths<br>\n", xstock.xsticker, xstock.xsname );
+	}
+	else if ( xstock.xstype[0] == STYPE_FX && xstock.xstype2[0] == STYPE2_BASIS )
+	{
+		printf ( "%s %s Currency in ten-thousandths<br>\n", xstock.xsticker, xstock.xsname );
+	}
+	else
+	{
+		printf ( "%s %s<br>\n", xstock.xsticker, xstock.xsname );
+	}
+
+	VolumeMaxHigh = HistoryArray[0].Volume;
+
+	for ( ndx = 1; ndx < HistoryCount; ndx++ )
+	{
+		if ( VolumeMaxHigh < HistoryArray[ndx].Volume )
+		{
+			VolumeMaxHigh = HistoryArray[ndx].Volume;
+		}
+	}
+
 	printf ( "<canvas id='stockCanvas' width='%d' height='%d' style='border:1px solid #000000;'>\n", STOCK_CHART_WIDTH, STOCK_CHART_HEIGHT );
 	printf ( "Your browser does not support the HTML5 canvas tag.\n" );
 	printf ( "</canvas>\n" );
-	printf ( "<canvas id='volumeCanvas' width='%d' height='%d' style='border:1px solid #000000;'>\n", VOLUME_CHART_WIDTH, VOLUME_CHART_HEIGHT );
-	printf ( "Your browser does not support the HTML5 canvas tag.\n" );
-	printf ( "</canvas>\n" );
+	if ( VolumeMaxHigh > 0 )
+	{
+		printf ( "<canvas id='volumeCanvas' width='%d' height='%d' style='border:1px solid #000000;'>\n", VOLUME_CHART_WIDTH, VOLUME_CHART_HEIGHT );
+		printf ( "Your browser does not support the HTML5 canvas tag.\n" );
+		printf ( "</canvas>\n" );
+	}
 	printf ( "</div>\n" );
 
 	StockMinLow  = HistoryArray[0].Low;
 	StockMaxHigh = HistoryArray[0].High;
-	VolumeMaxHigh = HistoryArray[0].Volume;
 	switch ( xmember.xmchrtslow )
 	{
 		case 10: SlowIndex = AVG_10; break;
@@ -353,11 +388,6 @@ void PaintChart ( int RunMode, char *Ticker )
 		if ( HistoryArray[ndx].Average[AVG_200] > 0.0 && StockMaxHigh < HistoryArray[ndx].Average[AVG_200] )
 		{
 			StockMaxHigh = HistoryArray[ndx].Average[AVG_200];
-		}
-
-		if ( VolumeMaxHigh < HistoryArray[ndx].Volume )
-		{
-			VolumeMaxHigh = HistoryArray[ndx].Volume;
 		}
 	}
 	printf ( "];\n" );

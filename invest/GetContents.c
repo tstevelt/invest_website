@@ -37,7 +37,8 @@ void GetContents ( int Index )
 	if (( fp = fopen ( fn, "r" )) == (FILE *)0 )
 	{
 		printf ( "Cannot open %s<br>\n", fn );
-		return;
+		fprintf ( stderr, "Cannot open %s<br>\n", fn );
+		exit ( 1 );
 	}
 
 	while ( fgets ( xbuffer, sizeof(xbuffer), fp ) != (char *)0 )

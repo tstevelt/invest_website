@@ -523,6 +523,7 @@ printf ( "  <div class='panel-group' id='accordion'>\n" );
 		printf ("<option value='%c'%s>Fundamental</option>\n",  STYLE_FUNDAMENTAL, ReportStyle[ndx] == STYLE_FUNDAMENTAL ? " selected" : "" );
 		printf ("<option value='%c'%s>Buckets</option>\n", STYLE_BUCKETS,  ReportStyle[ndx] == STYLE_BUCKETS  ? " selected" : "" );
 		printf ("<option value='%c'%s>MorningStar</option>\n", STYLE_MSTAR,  ReportStyle[ndx] == STYLE_MSTAR  ? " selected" : "" );
+		printf ("<option value='%c'%s>YOY</option>\n", STYLE_YOY,  ReportStyle[ndx] == STYLE_YOY  ? " selected" : "" );
 //		printf ("<option value='%c'%s>Custom</option>\n", STYLE_CUSTOM,  ReportStyle[ndx] == STYLE_CUSTOM  ? " selected" : "" );
 		printf ("</select>\n" );
 		printf ("</td>\n" );

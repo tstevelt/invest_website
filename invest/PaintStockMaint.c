@@ -251,6 +251,7 @@ void PaintStockMaint ()
 	printf ( "<option value='%c'%s>Bond</option>\n",      STYPE_BOND, MaintStock.xstype[0] == STYPE_BOND ? " selected" : "" );
 	printf ( "<option value='%c'%s>ADR</option>\n",       STYPE_ADR, MaintStock.xstype[0] == STYPE_ADR ? " selected" : "" );
 	printf ( "<option value='%c'%s>REIT</option>\n",      STYPE_REIT, MaintStock.xstype[0] == STYPE_REIT ? " selected" : "" );
+	printf ( "<option value='%c'%s>FOREX</option>\n",     STYPE_FX, MaintStock.xstype[0] == STYPE_FX ? " selected" : "" );
 	printf ( "<option value='%c'%s>CRYPTO</option>\n",    STYPE_CRYPTO, MaintStock.xstype[0] == STYPE_CRYPTO ? " selected" : "" );
 	printf ( "<option value='%c'%s>INDEX</option>\n",     STYPE_INDEX, MaintStock.xstype[0] == STYPE_INDEX ? " selected" : "" );
 	printf ( "</select>\n" );
@@ -264,12 +265,14 @@ void PaintStockMaint ()
 	printf ( "SIZE/TYPE2</td>\n" );
 	printf ( "<td>\n" );
 	printf ( "<select name='field_Stype2'>\n" );
-	printf ( "<option value='%c'%s>Large-Cap</option>\n", LARGE_CAP, MaintStock.xstype2[0] == LARGE_CAP ? " selected" : "" );
-	printf ( "<option value='%c'%s>Mid-Cap</option>\n",   MID_CAP, MaintStock.xstype2[0] == MID_CAP ? " selected" : "" );
-	printf ( "<option value='%c'%s>Small-Cap</option>\n", SMALL_CAP, MaintStock.xstype2[0] == SMALL_CAP ? " selected" : "" );
-	printf ( "<option value='%c'%s>Developed</option>\n", DEVELOPED, MaintStock.xstype2[0] == DEVELOPED ? " selected" : "" );
-	printf ( "<option value='%c'%s>Emerging</option>\n",  EMERGING, MaintStock.xstype2[0] == EMERGING ? " selected" : "" );
-	printf ( "<option value='%c'%s>Hedge (gold)</option>\n",  HEDGE, MaintStock.xstype2[0] == HEDGE ? " selected" : "" );
+	printf ( "<option value='%c'%s>Large-Cap</option>\n", STYPE2_LARGE_CAP, MaintStock.xstype2[0] == STYPE2_LARGE_CAP ? " selected" : "" );
+	printf ( "<option value='%c'%s>Mid-Cap</option>\n",   STYPE2_MID_CAP, MaintStock.xstype2[0] == STYPE2_MID_CAP ? " selected" : "" );
+	printf ( "<option value='%c'%s>Small-Cap</option>\n", STYPE2_SMALL_CAP, MaintStock.xstype2[0] == STYPE2_SMALL_CAP ? " selected" : "" );
+	printf ( "<option value='%c'%s>Developed</option>\n", STYPE2_DEVELOPED, MaintStock.xstype2[0] == STYPE2_DEVELOPED ? " selected" : "" );
+	printf ( "<option value='%c'%s>Emerging</option>\n",  STYPE2_EMERGING, MaintStock.xstype2[0] == STYPE2_EMERGING ? " selected" : "" );
+	printf ( "<option value='%c'%s>Other</option>\n",     STYPE2_OTHER, MaintStock.xstype2[0] == STYPE2_OTHER ? " selected" : "" );
+	printf ( "<option value='%c'%s>Times 100</option>\n",  STYPE2_HUNDREDTH, MaintStock.xstype2[0] == STYPE2_HUNDREDTH ? " selected" : "" );
+	printf ( "<option value='%c'%s>Times 10000</option>\n",STYPE2_BASIS, MaintStock.xstype2[0] == STYPE2_BASIS ? " selected" : "" );
 	printf ( "</select>\n" );
 	printf ( "</td>\n" );
 	printf ( "<td>&nbsp;\n" );
@@ -287,18 +290,23 @@ void PaintStockMaint ()
 	printf ( "<td>%s</td>\n", MaintStock.xscik );
 	printf ( "</tr>\n" );
 
-	if ( nsStrchr ( "SA", MaintStock.xstype[0] ) != NULL )
+	switch (  MaintStock.xstype[0] )
 	{
-	// fixit make editable?
-		printf ( "<tr>\n" );
-		printf ( "<td>SECTOR</td>\n" );
-		printf ( "<td>%s</td>\n", xsector.xsecname );
-		printf ( "</tr>\n" );
+		case STYPE_STOCK:
+		case STYPE_ADR:
+		case STYPE_REIT:
+		case STYPE_PREFER:
+// fixit make editable?
+			printf ( "<tr>\n" );
+			printf ( "<td>SECTOR</td>\n" );
+			printf ( "<td>%s</td>\n", xsector.xsecname );
+			printf ( "</tr>\n" );
 
-		printf ( "<tr>\n" );
-		printf ( "<td>INDUSTRY</td>\n" );
-		printf ( "<td>%s</td>\n", xindustry.xindname );
-		printf ( "</tr>\n" );
+			printf ( "<tr>\n" );
+			printf ( "<td>INDUSTRY</td>\n" );
+			printf ( "<td>%s</td>\n", xindustry.xindname );
+			printf ( "</tr>\n" );
+			break;
 	}
 
 	printf ( "<tr>\n" );

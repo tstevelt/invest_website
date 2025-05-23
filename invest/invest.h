@@ -28,6 +28,9 @@
 #define DENY_MULTIPLE_POSITIONS
 #undef DENY_MULTIPLE_POSITIONS
 
+#define CAN_GET_DIVIDENDS
+#undef CAN_GET_DIVIDENDS
+
 #define		CSS_VERSION		"20240624_03"
 
 #define		TABLE_CLASS		"table-condensed table-borderless"

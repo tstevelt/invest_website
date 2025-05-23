@@ -121,6 +121,7 @@ char ValidReportFormatUsage ( char *FormatArg, int (*Usage)() )
 	{ 
 		printf ( "Not available format\n" ); 
 		Usage ();
+		exit ( 1 );
 	} 
 	else if ( nsStrcmp ( FormatArg, "xlsx" ) == 0 ) 
 	{ 
@@ -130,6 +131,7 @@ char ValidReportFormatUsage ( char *FormatArg, int (*Usage)() )
 	{ 
 		printf ( "Unknown format\n" ); 
 		Usage ();
+		exit ( 1 );
 	} 
 
 	return ( rv );

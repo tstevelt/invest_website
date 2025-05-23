@@ -43,8 +43,6 @@ function DrawStockChart ()
 {
 	var stockCanvas = document.getElementById ( 'stockCanvas' );
 	var stockCtx = stockCanvas.getContext('2d');
-	var volumeCanvas = document.getElementById ( 'volumeCanvas' );
-	var volumeCtx = volumeCanvas.getContext('2d');
 	var leftmargin = 100.0;
 	var margin = 20.0;
 	var increment = (StockChartWidth - leftmargin - margin) / (History.length + 1);
@@ -62,8 +60,13 @@ function DrawStockChart ()
 	var volume_h = 0;
 	var stockdatarange = StockMaxHigh - StockMinLow;
 	var stockarearange = StockChartHeight - 2 * margin;
-	var volumedatarange = VolumeMaxHigh;
-	var volumearearange = VolumeChartHeight - 2 * margin;
+	if ( VolumeMaxHigh > 0 )
+	{
+		var volumeCanvas = document.getElementById ( 'volumeCanvas' );
+		var volumeCtx = volumeCanvas.getContext('2d');
+		var volumedatarange = VolumeMaxHigh;
+		var volumearearange = VolumeChartHeight - 2 * margin;
+	}
 	var percent = 0.0;
 	var StartIndex = 4;
 	var IncIndex = 10;
@@ -341,6 +344,14 @@ function DrawStockChart ()
 
 	}
 	stockCtx.stroke();
+	
+	/*----------------------------------------------------------
+		tms 04/19/2025 currency pairs do not have volume info.
+	----------------------------------------------------------*/
+	if ( VolumeMaxHigh < 1 )
+	{
+		return;
+	}
 
 	/*----------------------------------------------------------
 		volume chart - daily bars and moving average

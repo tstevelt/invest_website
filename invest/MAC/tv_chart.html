@@ -1,0 +1,33 @@
+<div id='tv-widget-chart'>
+<!--
+TradingView Widget BEGIN
+-->
+<script src="https://d1pbjj5jf5bdxg.cloudfront.net/packs/tradingview-0d8f743e38e5a9dfe978.js" defer="defer"></script>
+<script>
+  $(document).ready(function() {
+    new TradingView.widget({
+      "container_id": 'tv-widget-chart',
+      "width": '100%',
+      "height": "400",
+      "symbol": "NASDAQ:CSCO",
+      "interval": "D",
+      "timezone": "exchange",
+      "theme": "White",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "allow_symbol_change": true,
+      "hideideas": true,
+      "studies": ["MASimple@tv-basicstudies"],
+      "show_popup_button": true,
+      "popup_width": "1000",
+      "popup_height": "650",
+      "referral_id": "4009"
+    });
+  });
+</script>
+<!--
+TradingView Widget END
+-->
+</div>
+
